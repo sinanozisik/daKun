@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>daKun Health — Privacy Policy</title>
+    <link rel="stylesheet" href="../assets/legal.css" />
+  </head>
+  <body>
+    <nav class="lang-nav" aria-label="Language">
+      <a href="#en">English</a>
+      <span aria-hidden="true">|</span>
+      <a href="#tr">Türkçe</a>
+    </nav>
+    <main class="wrap">
+      <p class="site-kicker">daKun Health</p>
+      <p class="muted">Package <code>dakun.health</code> · Android</p>
+
+      <section id="en" lang="en">
+        <h1>Privacy Policy</h1>
+        <p class="effective">Effective date: 2 September 2026</p>
+        <p>
+          This Privacy Policy describes how <strong>daKun Health</strong>
+          (“the app”, “we”) handles information when you use the Android
+          application. It is written for Google Play User Data and Health apps
+          policies and for transparency under Turkish KVKK. It is not medical
+          advice.
+        </p>
+
+        <h2>1. Who is responsible</h2>
+        <p>
+          The data controller (KVKK <em>veri sorumlusu</em>) is the individual
+          <strong>Sinan ÖZIŞIK</strong>, Türkiye. Contact:
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>.
+        </p>
+        <p>
+          daKun Health is a personal nutrition, activity, weight, and step
+          tracking app. It is <strong>not a medical device</strong>. Meal
+          analysis and calorie or macro figures are estimates, not diagnosis or
+          treatment.
+        </p>
+        <p>
+          The app is intended for people <strong>18 years of age or older</strong>.
+        </p>
+
+        <h2>2. Information we collect</h2>
+        <p>What we collect depends on how you use the app.</p>
+        <h2>2.1 Account and identity</h2>
+        <ul>
+          <li>
+            <strong>Guest use:</strong> a local identifier on the device. You can
+            use core tracking without a Google account.
+          </li>
+          <li>
+            <strong>Optional Google Sign-In:</strong> name, email address, Google
+            account identifier, and optional profile photo URL. Sign-in uses
+            Google Credential Manager and creates a session with our cloud
+            provider (Supabase Auth), not Firebase Authentication.
+          </li>
+        </ul>
+        <h2>2.2 Profile, health, and fitness data you enter or sync</h2>
+        <ul>
+          <li>
+            Profile: date of birth, sex, height, weight, body-fat percentage,
+            activity level, calorie and weight goals, related goal history, and
+            preferences (language, units, theme, reminders).
+          </li>
+          <li>
+            Nutrition logs: meals, dishes, names, amounts, and macronutrients
+            (calories, protein, carbohydrate, fat, alcohol where used).
+          </li>
+          <li>
+            Activity, step, and weight logs (including optional body fat on
+            weight entries).
+          </li>
+          <li>
+            <strong>Health Connect</strong> (only if you enable it and grant each
+            permission): we may read and/or write weight, body fat, nutrition,
+            exercise; and read steps, distance, and active calories, as
+            described in the in-app Health Connect rationale.
+          </li>
+        </ul>
+        <h2>2.3 Meal photos and AI analysis</h2>
+        <p>
+          If you choose camera, gallery, or the system photo picker, the
+          <strong>meal image</strong> (and any text you add) is sent to our
+          analysis gateway so an AI model (for example Google Gemini or another
+          provider we configure) can estimate food and macros. Photos are used
+          for that analysis request. They are not stored as fields on meal or
+          dish records in the on-device database.
+        </p>
+        <h2>2.4 Technical, ads, billing, and integrity</h2>
+        <ul>
+          <li>
+            An <strong>installation ID</strong> (UUID for this app install, not
+            your user id), used for sync, abuse prevention, and related backend
+            calls.
+          </li>
+          <li>
+            <strong>Play Integrity</strong> device/app attestation tokens on
+            certain backend requests (meal analysis, sync, ads-related checks).
+          </li>
+          <li>
+            <strong>Free tier ads:</strong> Google AdMob (banner and rewarded
+            interstitial), advertising ID, and consent via Google UMP where
+            required (for example EEA/UK). Pro subscribers do not see these ads.
+          </li>
+          <li>
+            <strong>Subscriptions:</strong> Google Play Billing product
+            <code>dakun_pro</code> (monthly and yearly). We do not receive or
+            store your card number. Play processes payment.
+          </li>
+          <li>
+            <strong>Firebase Analytics:</strong> product events (for example
+            paywall and purchase funnel) and meal-analysis metadata (status,
+            token or size metrics). We do not send the raw meal photo to
+            Analytics.
+          </li>
+          <li>
+            Local reminder scheduling (meal and weight). We do not use Firebase
+            Cloud Messaging for those reminders.
+          </li>
+        </ul>
+
+        <h2>3. How we use information</h2>
+        <ul>
+          <li>Provide tracking, goals, reminders, and on-device storage.</li>
+          <li>Optional Google account, Pro cloud sync, and AI meal estimates.</li>
+          <li>Show ads on the Free tier and manage Play subscriptions.</li>
+          <li>Protect the service (integrity, rate limits, abuse prevention).</li>
+          <li>Understand product usage in aggregate via Analytics.</li>
+          <li>Respond to support requests you send by email.</li>
+        </ul>
+
+        <h2>4. Storage and security</h2>
+        <ul>
+          <li>
+            <strong>On the device:</strong> a local database (Room). We do
+            <strong>not</strong> claim encryption at rest for that database.
+          </li>
+          <li>
+            <strong>Android backup:</strong> the app allows Android Auto Backup,
+            which may include local app data according to your device and Google
+            account backup settings.
+          </li>
+          <li>
+            <strong>Pro cloud sync:</strong> encrypted in transit (HTTPS) to
+            Supabase Storage (per-day and catalog change files tied to your
+            account).
+          </li>
+          <li>
+            <strong>Free backup:</strong> you can export or import a backup file
+            you choose (share / open document). That file is under your control.
+          </li>
+          <li>
+            Network traffic to our backends and Google services uses HTTPS.
+          </li>
+        </ul>
+
+        <h2>5. Sharing and processors</h2>
+        <p>
+          We do <strong>not sell or rent</strong> your personal or health data.
+          We share information with service providers only as needed to run the
+          app:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Party</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google</td>
+              <td>
+                Sign-In, Play, Play Billing, AdMob, Firebase Analytics, Play
+                Integrity, Health Connect
+              </td>
+            </tr>
+            <tr>
+              <td>Supabase</td>
+              <td>Authentication, Pro cloud files, edge functions (including meal analysis gateway and related checks)</td>
+            </tr>
+            <tr>
+              <td>AI meal-analysis providers</td>
+              <td>
+                Process meal images and related text to return estimates (for
+                example Gemini or another configured model)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Health Connect also shares data with other apps you authorize in
+          Health Connect, under Google’s and those apps’ policies.
+        </p>
+
+        <h2>6. Retention</h2>
+        <p>
+          Guest and on-device data stay until you clear app data, uninstall, or
+          we delete them after a valid deletion request. Cloud account data for
+          signed-in users is kept while the account exists and for Pro sync
+          files until deleted. Analytics and ads partners apply their own
+          retention. Backup files you exported remain wherever you saved them.
+        </p>
+
+        <h2>7. Your rights and deletion</h2>
+        <p>
+          You can view and edit most logs and profile fields in the app. You can
+          export a backup from the app (Free manual backup).
+        </p>
+        <p>
+          To request <strong>deletion</strong> of your account and associated
+          cloud data, email
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
+          from the address on the account. We will delete associated account and
+          cloud data (not merely freeze it), subject to legal retention. An
+          in-app account-deletion control is not available yet; this policy will
+          be updated when it is.
+        </p>
+        <p>
+          Uninstalling the app removes the local database from that device. It
+          does not by itself delete a cloud account.
+        </p>
+
+        <h2>8. Children</h2>
+        <p>
+          daKun Health is for users 18+. We do not knowingly collect personal
+          data from children. If you believe a child has used the app, contact
+          us and we will delete the data we hold.
+        </p>
+
+        <h2>9. International transfers</h2>
+        <p>
+          Processors such as Google and Supabase may process data in countries
+          other than Türkiye, including the United States, under their
+          contracts and safeguards.
+        </p>
+
+        <h2>10. Changes</h2>
+        <p>
+          We may update this policy. The effective date above will change. The
+          current version is always at this URL.
+        </p>
+
+        <h2>11. Contact</h2>
+        <p>
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
+        </p>
+      </section>
+
+      <hr class="lang-split" />
+
+      <section id="tr" lang="tr">
+        <h1>Gizlilik Politikası</h1>
+        <p class="effective">Yürürlük tarihi: 2 Eylül 2026</p>
+        <p>
+          Bu Gizlilik Politikası, <strong>daKun Health</strong> Android
+          uygulamasının (“uygulama”) bilgileri nasıl işlediğini açıklar. Google
+          Play Kullanıcı Verileri ve sağlık uygulamaları politikaları ile KVKK
+          aydınlatması için yazılmıştır. Tıbbi tavsiye değildir.
+        </p>
+
+        <h2>1. Veri sorumlusu</h2>
+        <p>
+          Veri sorumlusu gerçek kişi <strong>Sinan ÖZIŞIK</strong>, Türkiye.
+          İletişim:
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>.
+        </p>
+        <p>
+          daKun Health kişisel beslenme, aktivite, kilo ve adım takip
+          uygulamasıdır. <strong>Tıbbi cihaz değildir.</strong> Öğün analizi ve
+          kalori/makro değerleri tahmindir; teşhis veya tedavi değildir.
+        </p>
+        <p>
+          Uygulama <strong>18 yaş ve üzeri</strong> kullanıcılar içindir.
+        </p>
+
+        <h2>2. Topladığımız bilgiler</h2>
+        <p>Toplanan veriler kullanımıza göre değişir.</p>
+        <h2>2.1 Hesap ve kimlik</h2>
+        <ul>
+          <li>
+            <strong>Misafir:</strong> cihazdaki yerel kimlik. Google hesabı
+            olmadan temel takip kullanılabilir.
+          </li>
+          <li>
+            <strong>İsteğe bağlı Google ile giriş:</strong> ad, e-posta, Google
+            hesap kimliği, isteğe bağlı profil fotoğrafı URL’si. Giriş Google
+            Credential Manager ile yapılır; oturum bulut sağlayıcımızda
+            (Supabase Auth) oluşur. Firebase Authentication kullanılmaz.
+          </li>
+        </ul>
+        <h2>2.2 Girdiğiniz veya eşitlediğiniz profil ve sağlık verileri</h2>
+        <ul>
+          <li>
+            Profil: doğum tarihi, cinsiyet, boy, kilo, vücut yağ oranı,
+            aktivite düzeyi, kalori ve kilo hedefleri, hedef geçmişi, tercihler
+            (dil, birim, tema, hatırlatıcılar).
+          </li>
+          <li>
+            Beslenme kayıtları: öğünler, yemekler, adlar, miktarlar, makro
+            öğeler (kalori, protein, karbonhidrat, yağ, kullanılıyorsa alkol).
+          </li>
+          <li>Aktivite, adım ve kilo kayıtları (kilo kaydında isteğe bağlı yağ).</li>
+          <li>
+            <strong>Health Connect</strong> (açıp her izni verirseniz): kilo,
+            vücut yağı, beslenme, egzersiz okuma/yazma; adım, mesafe ve aktif
+            kalori okuma — uygulamadaki Health Connect gerekçesinde anlatıldığı
+            gibi.
+          </li>
+        </ul>
+        <h2>2.3 Öğün fotoğrafları ve yapay zekâ analizi</h2>
+        <p>
+          Kamera, galeri veya sistem fotoğraf seçicisini kullanırsanız
+          <strong>öğün görseli</strong> (ve eklediğiniz metin) analiz ağ
+          geçidine gönderilir; bir yapay zekâ modeli (örneğin Google Gemini
+          veya yapılandırdığımız başka bir sağlayıcı) yiyecek ve makro tahmini
+          üretir. Fotoğraflar bu analiz isteği içindir. Cihaz veritabanında
+          öğün veya yemek satırına fotoğraf alanı olarak kaydedilmez.
+        </p>
+        <h2>2.4 Teknik, reklam, faturalama ve bütünlük</h2>
+        <ul>
+          <li>
+            <strong>Kurulum kimliği</strong> (bu yükleme için UUID; kullanıcı
+            kimliği değil): senkron, kötüye kullanım önleme ve ilgili sunucu
+            çağrıları.
+          </li>
+          <li>
+            <strong>Play Integrity</strong> cihaz/uygulama doğrulama jetonları
+            (öğün analizi, senkron, reklamla ilgili kontroller).
+          </li>
+          <li>
+            <strong>Ücretsiz sürüm reklamları:</strong> Google AdMob (banner ve
+            ödüllü geçiş), reklam kimliği, gereken yerlerde Google UMP onayı
+            (ör. AEA/Birleşik Krallık). Pro abonelerde bu reklamlar yoktur.
+          </li>
+          <li>
+            <strong>Abonelik:</strong> Google Play Billing ürünü
+            <code>dakun_pro</code> (aylık ve yıllık). Kart numaranızı almayız
+            veya saklamayız; ödemeyi Play işler.
+          </li>
+          <li>
+            <strong>Firebase Analytics:</strong> ürün olayları (ör. ödeme
+            duvarı ve satın alma hunisi) ve öğün analizi üst verisi (durum,
+            jeton veya boyut metrikleri). Ham öğün fotoğrafı Analytics’e
+            gönderilmez.
+          </li>
+          <li>
+            Yerel hatırlatıcılar (öğün ve kilo). Bu hatırlatıcılar için
+            Firebase Cloud Messaging kullanılmaz.
+          </li>
+        </ul>
+
+        <h2>3. Verileri nasıl kullanırız</h2>
+        <ul>
+          <li>Takip, hedefler, hatırlatıcılar ve cihaz içi depolama.</li>
+          <li>İsteğe bağlı Google hesabı, Pro bulut senkronu, yapay zekâ öğün tahmini.</li>
+          <li>Ücretsiz sürümde reklam; Play aboneliklerini yönetme.</li>
+          <li>Hizmeti koruma (bütünlük, kota, kötüye kullanım).</li>
+          <li>Analytics ile ürün kullanımını anlama.</li>
+          <li>E-posta ile gönderdiğiniz destek taleplerine yanıt.</li>
+        </ul>
+
+        <h2>4. Saklama ve güvenlik</h2>
+        <ul>
+          <li>
+            <strong>Cihazda:</strong> yerel veritabanı (Room). Bu veritabanı
+            için <strong>at-rest şifreleme iddiasında bulunmuyoruz</strong>.
+          </li>
+          <li>
+            <strong>Android yedekleme:</strong> uygulama Android Auto Backup’a
+            izin verir; yerel veriler cihaz ve Google hesap yedek ayarlarınıza
+            göre yedeklenebilir.
+          </li>
+          <li>
+            <strong>Pro bulut senkronu:</strong> iletimde şifreleme (HTTPS) ile
+            Supabase Storage (hesabınıza bağlı gün ve katalog dosyaları).
+          </li>
+          <li>
+            <strong>Ücretsiz yedek:</strong> seçtiğiniz bir dosyaya dışa/içe
+            aktarma. Dosya sizin kontrolünüzdedir.
+          </li>
+          <li>Sunucularımıza ve Google hizmetlerine trafik HTTPS kullanır.</li>
+        </ul>
+
+        <h2>5. Paylaşım ve işleyenler</h2>
+        <p>
+          Kişisel veya sağlık verilerinizi <strong>satmıyor veya kiralamıyoruz</strong>.
+          Yalnızca uygulamayı çalıştırmak için gerekli sağlayıcılarla paylaşırız:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Taraf</th>
+              <th>Amaç</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google</td>
+              <td>
+                Giriş, Play, Play Billing, AdMob, Firebase Analytics, Play
+                Integrity, Health Connect
+              </td>
+            </tr>
+            <tr>
+              <td>Supabase</td>
+              <td>Kimlik doğrulama, Pro bulut dosyaları, uç işlevler (öğün analizi ağ geçidi ve ilgili kontroller)</td>
+            </tr>
+            <tr>
+              <td>Öğün analizi yapay zekâ sağlayıcıları</td>
+              <td>
+                Tahmin için öğün görseli ve ilgili metin (ör. Gemini veya
+                yapılandırılmış başka model)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Health Connect, orada yetki verdiğiniz diğer uygulamalarla da Google
+          ve o uygulamaların politikaları kapsamında veri paylaşabilir.
+        </p>
+
+        <h2>6. Saklama süresi</h2>
+        <p>
+          Misafir ve cihaz verileri, uygulama verisini silene, uygulamayı
+          kaldırana veya geçerli bir silme talebinden sonra silinene kadar
+          kalır. Giriş yapmış kullanıcıların bulut verisi hesap durduğu sürece
+          ve Pro senkron dosyaları silinene kadar tutulur. Analytics ve reklam
+          ortaklarının kendi saklama süreleri vardır. Dışa aktardığınız yedek
+          dosyalar kaydettiğiniz yerde kalır.
+        </p>
+
+        <h2>7. Haklarınız ve silme</h2>
+        <p>
+          Çoğu kayıt ve profil alanını uygulamada görüp düzenleyebilirsiniz.
+          Uygulamadan yedek dışa aktarabilirsiniz (ücretsiz manuel yedek).
+        </p>
+        <p>
+          Hesabınızın ve ilişkili bulut verisinin <strong>silinmesini</strong>
+          istemek için hesap e-postanızdan
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
+          adresine yazın. İlişkili hesap ve bulut verisini (yalnızca dondurma
+          değil) yasal saklama saklı kalmak kaydıyla sileriz. Uygulama içi hesap
+          silme düğmesi henüz yoktur; eklendiğinde bu politika güncellenir.
+        </p>
+        <p>
+          Uygulamayı kaldırmak o cihazdaki yerel veritabanını siler; tek başına
+          bulut hesabını silmez.
+        </p>
+
+        <h2>8. Çocuklar</h2>
+        <p>
+          daKun Health 18+ kullanıcılar içindir. Çocuklardan bilinçli veri
+          toplamayız. Bir çocuğun uygulamayı kullandığını düşünüyorsanız bize
+          yazın; elimizdeki veriyi sileriz.
+        </p>
+
+        <h2>9. Uluslararası aktarım</h2>
+        <p>
+          Google ve Supabase gibi işleyenler veriyi Türkiye dışındaki
+          ülkelerde (ABD dahil) kendi sözleşmeleri ve güvenceleri kapsamında
+          işleyebilir.
+        </p>
+
+        <h2>10. Değişiklikler</h2>
+        <p>
+          Bu politikayı güncelleyebiliriz. Yukarıdaki yürürlük tarihi değişir.
+          Güncel metin her zaman bu adrestedir.
+        </p>
+
+        <h2>11. İletişim</h2>
+        <p>
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
+        </p>
+      </section>
+
+      <footer>
+        <p><a href="../index.html">daKun legal home</a></p>
+      </footer>
+    </main>
+  </body>
+</html>
