@@ -23,7 +23,17 @@ Play Console has no dedicated terms URL field. Use the hashless URL in the store
 | In-app English | https://sinanozisik.github.io/daKun/health/terms.html#en |
 | In-app Turkish | https://sinanozisik.github.io/daKun/health/terms.html#tr |
 
-Future apps use the same pattern: `/{app-slug}/privacy.html`, `/{app-slug}/terms.html`.
+### Account deletion
+
+Play Console Data deletion URL (no language hash).
+
+| Use | URL |
+| --- | --- |
+| Play Console / Data deletion (no language hash) | https://sinanozisik.github.io/daKun/health/account-deletion.html |
+| English | https://sinanozisik.github.io/daKun/health/account-deletion.html#en |
+| Turkish | https://sinanozisik.github.io/daKun/health/account-deletion.html#tr |
+
+Future apps use the same pattern: `/{app-slug}/privacy.html`, `/{app-slug}/terms.html`, `/{app-slug}/account-deletion.html`.
 
 ## Publish
 
