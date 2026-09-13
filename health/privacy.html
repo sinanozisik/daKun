@@ -18,7 +18,7 @@
 
       <section id="en" lang="en">
         <h1>Privacy Policy</h1>
-        <p class="effective">Effective date: 5 September 2026</p>
+        <p class="effective">Effective date: 13 September 2026</p>
         <p>
           This Privacy Policy describes how <strong>daKun Health</strong>
           (“the app”, “we”) handles information when you use the Android
@@ -87,7 +87,9 @@
           analysis gateway so an AI model (for example Google Gemini or another
           provider we configure) can estimate food and macros. Photos are used
           for that analysis request. They are not stored as fields on meal or
-          dish records in the on-device database.
+          dish records in the on-device database. They are processed only for
+          that request (ephemeral). Gateway logs never include image bytes. We
+          do not send the raw meal photo to Analytics.
         </p>
         <h2>2.4 Technical, ads, billing, and integrity</h2>
         <ul>
@@ -97,18 +99,40 @@
             calls.
           </li>
           <li>
+            <strong>Device IDs:</strong> that installation ID, the Android
+            advertising ID, and the Firebase Analytics app-instance ID.
+          </li>
+          <li>
             <strong>Play Integrity</strong> device/app attestation tokens on
             certain backend requests (meal analysis, sync, ads-related checks).
+          </li>
+          <li>
+            <strong>Diagnostics:</strong> those Integrity tokens, plus AdMob SDK
+            diagnostic data on the Free tier.
+          </li>
+          <li>
+            <strong>Approximate location:</strong> The app does not request GPS
+            or location permission. Google Analytics and AdMob derive coarse
+            location from IP address.
+          </li>
+          <li>
+            <strong>App interactions:</strong> Firebase Analytics records
+            product events (for example paywall and purchase funnel) and app
+            lifecycle (sessions). AdMob records ad-related interactions on the
+            Free tier.
           </li>
           <li>
             <strong>Free tier ads:</strong> Google AdMob (banner and rewarded
             interstitial), advertising ID, and consent via Google UMP where
             required (for example EEA/UK). Pro subscribers do not see these ads.
+            For rewarded ads the app sends your app user id to Google AdMob as
+            server-side verification so a completed reward can be credited.
           </li>
           <li>
-            <strong>Subscriptions:</strong> Google Play Billing product
-            <code>dakun_pro</code> (monthly and yearly). We do not receive or
-            store your card number. Play processes payment.
+            <strong>Subscriptions / purchase history:</strong> Google Play
+            Billing product <code>dakun_pro</code> (monthly and yearly). We do
+            not receive or store your card number. Play processes payment.
+            Analytics may record in-app purchase events.
           </li>
           <li>
             <strong>Firebase Analytics:</strong> product events (for example
@@ -195,6 +219,16 @@
           Health Connect also shares data with other apps you authorize in
           Health Connect, under Google’s and those apps’ policies.
         </p>
+        <p>
+          For Google Play’s Data safety form: AdMob and Firebase Analytics
+          share some identifiers, approximate location (from IP), app
+          interactions, and diagnostics with Google for advertising, analytics,
+          and fraud prevention — not only as processors acting solely on our
+          instructions. Supabase (auth, Pro files, edge functions) and AI
+          meal-analysis providers process data on our behalf. Health Connect
+          may share health and fitness data with other apps you authorize
+          there.
+        </p>
 
         <h2>6. Retention</h2>
         <p>
@@ -256,7 +290,7 @@
 
       <section id="tr" lang="tr">
         <h1>Gizlilik Politikası</h1>
-        <p class="effective">Yürürlük tarihi: 5 Eylül 2026</p>
+        <p class="effective">Yürürlük tarihi: 13 Eylül 2026</p>
         <p>
           Bu Gizlilik Politikası, <strong>daKun Health</strong> Android
           uygulamasının (“uygulama”) bilgileri nasıl işlediğini açıklar. Google
@@ -320,7 +354,9 @@
           geçidine gönderilir; bir yapay zekâ modeli (örneğin Google Gemini
           veya yapılandırdığımız başka bir sağlayıcı) yiyecek ve makro tahmini
           üretir. Fotoğraflar bu analiz isteği içindir. Cihaz veritabanında
-          öğün veya yemek satırına fotoğraf alanı olarak kaydedilmez.
+          öğün veya yemek satırına fotoğraf alanı olarak kaydedilmez. İstek
+          süresince işlenir (geçici). Ağ geçidi loguna görüntü baytı yazılmaz.
+          Ham öğün fotoğrafı Analytics’e gönderilmez.
         </p>
         <h2>2.4 Teknik, reklam, faturalama ve bütünlük</h2>
         <ul>
@@ -330,18 +366,39 @@
             çağrıları.
           </li>
           <li>
+            <strong>Cihaz kimlikleri:</strong> o kurulum kimliği, Android
+            reklam kimliği ve Firebase Analytics app-instance ID.
+          </li>
+          <li>
             <strong>Play Integrity</strong> cihaz/uygulama doğrulama jetonları
             (öğün analizi, senkron, reklamla ilgili kontroller).
+          </li>
+          <li>
+            <strong>Teşhis:</strong> bu Integrity jetonları; ücretsiz sürümde
+            ayrıca AdMob SDK teşhis verisi.
+          </li>
+          <li>
+            <strong>Yaklaşık konum:</strong> GPS veya konum izni istenmez.
+            Google Analytics ve AdMob IP adresinden kaba konum üretir.
+          </li>
+          <li>
+            <strong>Uygulama etkileşimi:</strong> Firebase Analytics ürün
+            olayları (ör. ödeme duvarı ve satın alma hunisi) ve oturum
+            (yaşam döngüsü) kaydeder. Ücretsiz sürümde AdMob reklam
+            etkileşimini kaydeder.
           </li>
           <li>
             <strong>Ücretsiz sürüm reklamları:</strong> Google AdMob (banner ve
             ödüllü geçiş), reklam kimliği, gereken yerlerde Google UMP onayı
             (ör. AEA/Birleşik Krallık). Pro abonelerde bu reklamlar yoktur.
+            Ödüllü reklamda uygulama kullanıcı kimliği, ödülün işlenmesi için
+            Google AdMob sunucu doğrulamasına (SSV) gider.
           </li>
           <li>
-            <strong>Abonelik:</strong> Google Play Billing ürünü
-            <code>dakun_pro</code> (aylık ve yıllık). Kart numaranızı almayız
-            veya saklamayız; ödemeyi Play işler.
+            <strong>Abonelik / satın alma geçmişi:</strong> Google Play Billing
+            ürünü <code>dakun_pro</code> (aylık ve yıllık). Kart numaranızı
+            almayız veya saklamayız; ödemeyi Play işler. Analytics satın alma
+            olayı kaydedebilir.
           </li>
           <li>
             <strong>Firebase Analytics:</strong> ürün olayları (ör. ödeme
@@ -423,6 +480,16 @@
         <p>
           Health Connect, orada yetki verdiğiniz diğer uygulamalarla da Google
           ve o uygulamaların politikaları kapsamında veri paylaşabilir.
+        </p>
+        <p>
+          Google Play Data safety formu için: AdMob ve Firebase Analytics bazı
+          kimlikleri, IP’den yaklaşık konumu, uygulama etkileşimini ve teşhis
+          verisini reklam, analitik ve dolandırıcılık önleme amacıyla Google ile
+          paylaşır — yalnızca bizim talimatımızla işleyen sağlayıcı değildir.
+          Supabase (kimlik doğrulama, Pro dosyaları, uç işlevler) ve öğün
+          analizi yapay zekâ sağlayıcıları veriyi bizim adımıza işler. Health
+          Connect, orada yetki verdiğiniz diğer uygulamalarla sağlık ve fitness
+          verisi paylaşabilir.
         </p>
 
         <h2>6. Saklama süresi</h2>
