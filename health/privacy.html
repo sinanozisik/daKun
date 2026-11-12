@@ -18,7 +18,7 @@
 
       <section id="en" lang="en">
         <h1>Privacy Policy</h1>
-        <p class="effective">Effective date: 13 September 2026</p>
+        <p class="effective">Effective date: 12 November 2026</p>
         <p>
           This Privacy Policy describes how <strong>daKun Health</strong>
           (“the app”, “we”) handles information when you use the Android
@@ -107,8 +107,9 @@
             certain backend requests (meal analysis, sync, ads-related checks).
           </li>
           <li>
-            <strong>Diagnostics:</strong> those Integrity tokens, plus AdMob SDK
-            diagnostic data on the Free tier.
+            <strong>Diagnostics:</strong> those Integrity tokens, AdMob SDK
+            diagnostic data on the Free tier, and crash logs (see Firebase
+            Crashlytics below).
           </li>
           <li>
             <strong>Approximate location:</strong> The app does not request GPS
@@ -139,6 +140,16 @@
             paywall and purchase funnel) and meal-analysis metadata (status,
             token or size metrics). We do not send the raw meal photo to
             Analytics.
+          </li>
+          <li>
+            <strong>Firebase Crashlytics (crash logs):</strong> in release
+            builds, when the app crashes, Crashlytics (same Firebase project as
+            Analytics) collects the crash stack trace, exception type and
+            message, app version, and non-personal keys (flavor, build type,
+            version code). The Crashlytics user identifier is a SHA-256 hash of
+            the installation ID; we do not send your email or name. There is no
+            in-app switch to turn this off, and ad consent (UMP) does not cover
+            it. Debug builds do not send crash reports.
           </li>
           <li>
             Local reminder scheduling (meal and weight). We do not use Firebase
@@ -198,8 +209,8 @@
             <tr>
               <td>Google</td>
               <td>
-                Sign-In, Play, Play Billing, AdMob, Firebase Analytics, Play
-                Integrity, Health Connect
+                Sign-In, Play, Play Billing, AdMob, Firebase Analytics, Firebase
+                Crashlytics, Play Integrity, Health Connect
               </td>
             </tr>
             <tr>
@@ -224,7 +235,8 @@
           share some identifiers, approximate location (from IP), app
           interactions, and diagnostics with Google for advertising, analytics,
           and fraud prevention — not only as processors acting solely on our
-          instructions. Supabase (auth, Pro files, edge functions) and AI
+          instructions. Firebase Crashlytics processes crash logs on our behalf
+          (collected, not shared). Supabase (auth, Pro files, edge functions) and AI
           meal-analysis providers process data on our behalf. Health Connect
           may share health and fitness data with other apps you authorize
           there.
@@ -235,8 +247,9 @@
           Guest and on-device data stay until you clear app data, uninstall, or
           we delete them after a valid deletion request. Cloud account data for
           signed-in users is kept while the account exists and for Pro sync
-          files until deleted. Analytics and ads partners apply their own
-          retention. Backup files you exported remain wherever you saved them.
+          files until deleted. Crashlytics crash reports are kept in the
+          Firebase console for about 90 days. Analytics and ads partners apply
+          their own retention. Backup files you exported remain wherever you saved them.
         </p>
 
         <h2>7. Your rights and deletion</h2>
@@ -290,7 +303,7 @@
 
       <section id="tr" lang="tr">
         <h1>Gizlilik Politikası</h1>
-        <p class="effective">Yürürlük tarihi: 13 Eylül 2026</p>
+        <p class="effective">Yürürlük tarihi: 12 Kasım 2026</p>
         <p>
           Bu Gizlilik Politikası, <strong>daKun Health</strong> Android
           uygulamasının (“uygulama”) bilgileri nasıl işlediğini açıklar. Google
@@ -375,7 +388,8 @@
           </li>
           <li>
             <strong>Teşhis:</strong> bu Integrity jetonları; ücretsiz sürümde
-            ayrıca AdMob SDK teşhis verisi.
+            AdMob SDK teşhis verisi; ayrıca çökme kayıtları (aşağıda Firebase
+            Crashlytics).
           </li>
           <li>
             <strong>Yaklaşık konum:</strong> GPS veya konum izni istenmez.
@@ -405,6 +419,16 @@
             duvarı ve satın alma hunisi) ve öğün analizi üst verisi (durum,
             jeton veya boyut metrikleri). Ham öğün fotoğrafı Analytics’e
             gönderilmez.
+          </li>
+          <li>
+            <strong>Firebase Crashlytics (çökme kayıtları):</strong> sürüm
+            (release) derlemelerinde uygulama çökerse Crashlytics (Analytics
+            ile aynı Firebase projesi) çökme yığın izini, istisna türü ve
+            iletisini, uygulama sürümünü ve kişisel olmayan anahtarları
+            (flavor, derleme türü, sürüm kodu) toplar. Crashlytics kullanıcı
+            kimliği, kurulum kimliğinin SHA-256 özetidir; e-posta veya ad
+            gönderilmez. Uygulama içinde kapatma seçeneği yoktur; reklam onayı
+            (UMP) bunu kapsamaz. Debug derlemeleri çökme raporu göndermez.
           </li>
           <li>
             Yerel hatırlatıcılar (öğün ve kilo). Bu hatırlatıcılar için
@@ -460,8 +484,8 @@
             <tr>
               <td>Google</td>
               <td>
-                Giriş, Play, Play Billing, AdMob, Firebase Analytics, Play
-                Integrity, Health Connect
+                Giriş, Play, Play Billing, AdMob, Firebase Analytics, Firebase
+                Crashlytics, Play Integrity, Health Connect
               </td>
             </tr>
             <tr>
@@ -486,6 +510,8 @@
           kimlikleri, IP’den yaklaşık konumu, uygulama etkileşimini ve teşhis
           verisini reklam, analitik ve dolandırıcılık önleme amacıyla Google ile
           paylaşır — yalnızca bizim talimatımızla işleyen sağlayıcı değildir.
+          Firebase Crashlytics çökme kayıtlarını bizim adımıza işler
+          (toplanır, paylaşılmaz).
           Supabase (kimlik doğrulama, Pro dosyaları, uç işlevler) ve öğün
           analizi yapay zekâ sağlayıcıları veriyi bizim adımıza işler. Health
           Connect, orada yetki verdiğiniz diğer uygulamalarla sağlık ve fitness
@@ -497,7 +523,8 @@
           Misafir ve cihaz verileri, uygulama verisini silene, uygulamayı
           kaldırana veya geçerli bir silme talebinden sonra silinene kadar
           kalır. Giriş yapmış kullanıcıların bulut verisi hesap durduğu sürece
-          ve Pro senkron dosyaları silinene kadar tutulur. Analytics ve reklam
+          ve Pro senkron dosyaları silinene kadar tutulur. Crashlytics çökme
+          raporları Firebase konsolunda yaklaşık 90 gün tutulur. Analytics ve reklam
           ortaklarının kendi saklama süreleri vardır. Dışa aktardığınız yedek
           dosyalar kaydettiğiniz yerde kalır.
         </p>
