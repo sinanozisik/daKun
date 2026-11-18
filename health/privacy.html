@@ -18,19 +18,23 @@
 
       <section id="en" lang="en">
         <h1>Privacy Policy</h1>
-        <p class="effective">Effective date: 12 November 2026</p>
+        <p class="effective">Last updated: 18 November 2026</p>
         <p>
           This Privacy Policy describes how <strong>daKun Health</strong>
           (“the app”, “we”) handles information when you use the Android
-          application. It is written for Google Play User Data and Health apps
-          policies and for transparency under Turkish KVKK. It is not medical
-          advice.
+          application. It is a single document: it includes the Turkish KVKK
+          information notice (aydınlatma), the explicit consent (açık rıza)
+          text, and a GDPR notice for a worldwide release. It is also written
+          for Google Play User Data and Health apps policies. It is not
+          medical advice.
         </p>
 
         <h2>1. Who is responsible</h2>
         <p>
-          The data controller (KVKK <em>veri sorumlusu</em>) is the individual
-          <strong>Sinan ÖZIŞIK</strong>, Türkiye. Contact:
+          The data controller (KVKK <em>veri sorumlusu</em>) is
+          <strong>Sinan Özışık</strong>, an individual developer. Postal
+          address: Prof. Dr. Bülent Tarcan Cd., Meriç Konak 4 Ap., No: 17,
+          D: 6, Gayrettepe Mh., 34349 Beşiktaş/Istanbul, Türkiye. Email:
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>.
         </p>
         <p>
@@ -45,20 +49,23 @@
 
         <h2>2. Information we collect</h2>
         <p>What we collect depends on how you use the app.</p>
-        <h2>2.1 Account and identity</h2>
+        <h3>2.1 Account and identity</h3>
         <ul>
           <li>
-            <strong>Guest use:</strong> a local identifier on the device. You can
-            use core tracking without a Google account.
+            <strong>Guest use:</strong> you can use the app without a daKun
+            account. See section 2.5.
           </li>
           <li>
-            <strong>Optional Google Sign-In:</strong> name, email address, Google
-            account identifier, and optional profile photo URL. Sign-in uses
-            Google Credential Manager and creates a session with our cloud
-            provider (Supabase Auth), not Firebase Authentication.
+            <strong>daKun account (Google Sign-In):</strong> name, email
+            address, Google account identifier, and optional profile photo URL.
+            Sign-in uses Google Credential Manager and creates a session with
+            our cloud provider (Supabase Auth), not Firebase Authentication.
+            The explicit consent in
+            <a href="#consent-en">section 5</a> is given on this sign-in
+            screen.
           </li>
         </ul>
-        <h2>2.2 Profile, health, and fitness data you enter or sync</h2>
+        <h3>2.2 Profile, health, and fitness data you enter or sync</h3>
         <ul>
           <li>
             Profile: date of birth, sex, height, weight, body-fat percentage,
@@ -74,24 +81,52 @@
             weight entries).
           </li>
           <li>
+            Meal-analysis results returned by the AI providers (estimated
+            dishes, amounts, and macros).
+          </li>
+          <li>
             <strong>Health Connect</strong> (only if you enable it and grant each
             permission): we may read and/or write weight, body fat, nutrition,
             exercise; and read steps, distance, and active calories, as
             described in the in-app Health Connect rationale.
           </li>
         </ul>
-        <h2>2.3 Meal photos and AI analysis</h2>
+        <p>
+          These logs and results are stored on your device. They are uploaded
+          to our cloud only if you use <strong>Pro cloud sync</strong> (see
+          section 7).
+        </p>
+        <h3>2.3 Meal photos and AI analysis</h3>
         <p>
           If you choose camera, gallery, or the system photo picker, the
-          <strong>meal image</strong> (and any text you add) is sent to our
-          analysis gateway so an AI model (for example Google Gemini or another
-          provider we configure) can estimate food and macros. Photos are used
-          for that analysis request. They are not stored as fields on meal or
-          dish records in the on-device database. They are processed only for
-          that request (ephemeral). Gateway logs never include image bytes. We
-          do not send the raw meal photo to Analytics.
+          <strong>meal image</strong> (and any text you add) is sent from our
+          server to the AI providers in the listed categories (see
+          <a href="#ai-providers-en">section 6</a>) so a model can estimate
+          food and macros. We do <strong>not</strong> store the photo ourselves
+          (it is not kept as a field on meal or dish records in the on-device
+          database, and our gateway logs never include image bytes). We do not
+          send the raw meal photo to Analytics.
         </p>
-        <h2>2.4 Technical, ads, billing, and integrity</h2>
+        <p>
+          Photo analysis assumes that images are of food or meals only. You
+          should upload only food or meal photos. Do not upload other photos,
+          such as people or faces, identity documents, medical reports, or
+          other personal or third-party content. If you upload such a photo
+          anyway, it is processed only for meal analysis, like any other
+          photo, and is not stored by us. Providers may still retain the
+          request for a limited time, as described in section 6. The same
+          usage rule is in the
+          <a href="terms.html">Terms of Use</a>.
+        </p>
+        <p>
+          Photos are therefore not “ephemeral” in the providers’ systems: those
+          providers may retain the request for a limited time for security and
+          abuse monitoring, as described in section 6. We do not use photos to
+          train our own models, and the listed providers are not permitted to
+          use your requests to train their models.
+        </p>
+
+        <h3>2.4 Technical, ads, billing, integrity, and logs</h3>
         <ul>
           <li>
             An <strong>installation ID</strong> (UUID for this app install, not
@@ -107,7 +142,18 @@
             certain backend requests (meal analysis, sync, ads-related checks).
           </li>
           <li>
-            <strong>Diagnostics:</strong> those Integrity tokens, AdMob SDK
+            <strong>IP prefix for abuse prevention:</strong> we keep an IP
+            prefix (/24 for IPv4, /56 for IPv6) together with request counts
+            for at most 1 hour.
+          </li>
+          <li>
+            <strong>Our server logs</strong> may contain a user id and a short
+            excerpt of meal text. They do not include image bytes. Supabase
+            platform logs may retain IP addresses for a limited period
+            according to that provider.
+          </li>
+          <li>
+            <strong>Diagnostics:</strong> Integrity tokens, AdMob SDK
             diagnostic data on the Free tier, and crash logs (see Firebase
             Crashlytics below).
           </li>
@@ -155,23 +201,317 @@
             Local reminder scheduling (meal and weight). We do not use Firebase
             Cloud Messaging for those reminders.
           </li>
+          <li>
+            <strong>Consent record</strong> (daKun accounts only): we store
+            only a server timestamp of when you accepted the consent in
+            <a href="#consent-en">section 5</a> (see
+            <a href="#consent-record-en">section 10</a>).
+          </li>
+          <li>
+            <strong>Quota</strong> information used to apply analysis limits
+            to your account.
+          </li>
         </ul>
+        <h3>2.5 Guest use</h3>
+        <p>
+          Guest use is anonymous. There is no daKun account and no Google
+          sign-in. Guest data stays on the device. If you run meal analysis as
+          a guest, the request is sent from our server without user
+          identifiers, as described in section 6. We do not keep a consent
+          timestamp for guests. The explicit consent in section 5 applies only
+          when you sign in to a daKun account.
+        </p>
 
         <h2>3. How we use information</h2>
         <ul>
           <li>Provide tracking, goals, reminders, and on-device storage.</li>
-          <li>Optional Google account, Pro cloud sync, and AI meal estimates.</li>
+          <li>
+            Optional daKun account, Pro cloud sync, and AI meal estimates.
+          </li>
           <li>Show ads on the Free tier and manage Play subscriptions.</li>
           <li>Protect the service (integrity, rate limits, abuse prevention).</li>
           <li>Understand product usage in aggregate via Analytics.</li>
           <li>Respond to support requests you send by email.</li>
         </ul>
 
-        <h2>4. Storage and security</h2>
+        <h2 id="kvkk-en">4. KVKK information notice (aydınlatma)</h2>
+        <p>
+          This section is the information notice required under Turkish Law No.
+          6698 on the Protection of Personal Data (KVKK), including Articles 5,
+          6, 10, 11, and 13. Personal data are collected by electronic means,
+          through the app (data you enter, permissions you grant, and technical
+          data generated by your use). Support and rights requests may also be
+          collected by email.
+        </p>
+        <h3>4.1 Controller identity</h3>
+        <p>
+          The controller is identified in section 1 (name, status as an
+          individual developer, address, and contact email). Those details are
+          not repeated here.
+        </p>
+        <h3>4.2 Purposes</h3>
+        <p>We process personal data to:</p>
+        <ul>
+          <li>
+            provide nutrition, weight, activity, and step tracking, including
+            goals and reminders;
+          </li>
+          <li>
+            analyse meal photos and related text with AI providers and keep the
+            resulting estimates in your logs;
+          </li>
+          <li>
+            create and manage a daKun account and, for Pro subscribers, cloud
+            sync;
+          </li>
+          <li>operate the Free tier (including ads) and Play subscriptions;</li>
+          <li>protect the service (integrity, rate limits, abuse prevention);</li>
+          <li>understand product usage and diagnose crashes;</li>
+          <li>respond to support and deletion requests.</li>
+        </ul>
+        <h3>4.3 Legal bases</h3>
+        <ul>
+          <li>
+            <strong>Health data</strong> (a special category under KVKK Article
+            6), including meal logs and photos used for nutrition analysis,
+            weight, activity, and analysis results, for daKun accounts:
+            <strong>explicit consent (açık rıza)</strong>, Article 6.
+          </li>
+          <li>
+            Account, sign-in, providing the app service you request, and Play
+            subscriptions: establishment or performance of a contract, Article
+            5/2 (c).
+          </li>
+          <li>
+            Legal obligations that may apply to us: Article 5/2 (ç).
+          </li>
+          <li>
+            Security, Play Integrity, rate limits, abuse prevention, Firebase
+            Analytics and Crashlytics, and operating Free-tier ads (together
+            with the advertising identifiers involved): our legitimate
+            interest, Article 5/2 (f), provided this does not harm your
+            fundamental rights and freedoms. Where Google UMP is required (for
+            example EEA/UK), that Google consent is separate from the
+            health-data consent in section 5.
+          </li>
+        </ul>
+        <p>
+          We do not ask for a separate consent for account administration, ads,
+          or crash logs. Those activities are explained in this notice and rely
+          on the bases above. The explicit consent in section 5 is collected
+          only for daKun accounts, on the sign-in screen.
+        </p>
+        <h3>4.4 Recipients</h3>
+        <p>
+          We do not sell or rent your personal or health data. Recipients are
+          the service providers listed in
+          <a href="#processors-en">section 8</a>: Google (Sign-In, Play, Play
+          Billing, AdMob, Firebase Analytics, Firebase Crashlytics, Play
+          Integrity, Health Connect), Supabase, and the AI providers in the
+          listed categories in section 6. Health Connect may also share data
+          with other apps you authorize there.
+        </p>
+        <h3>4.5 Transfer abroad</h3>
+        <p>
+          The controller is in Türkiye. Account, profile, consent timestamp,
+          quota, and Pro cloud-sync files are hosted with Supabase in the
+          European Union (Frankfurt, <code>eu-central-1</code>). Google and the
+          AI providers in the listed categories may process data in countries
+          other than Türkiye, including the United States and, for Alibaba
+          Cloud Model Studio / DashScope, Singapore. Meal photos and related
+          text are sent to those AI providers for analysis, as described in
+          section 6.
+        </p>
+        <p>
+          This section describes where data go, as a matter of fact. It does
+          not claim that standard contracts or other cross-border safeguards
+          are already in place.
+        </p>
+        <h3>4.6 Your rights under KVKK Article 11</h3>
+        <p>You may:</p>
+        <ul>
+          <li>learn whether your personal data are processed;</li>
+          <li>request information about that processing;</li>
+          <li>
+            learn the purpose of processing and whether it is used in line
+            with that purpose;
+          </li>
+          <li>
+            know the third parties to whom data are transferred in Türkiye or
+            abroad;
+          </li>
+          <li>request correction of incomplete or inaccurate data;</li>
+          <li>
+            request deletion or destruction of data under the conditions in
+            Article 7;
+          </li>
+          <li>
+            request that correction or deletion be notified to third parties
+            to whom the data were transferred;
+          </li>
+          <li>
+            object to a result against you that is arrived at by analysing
+            the data exclusively through automated systems;
+          </li>
+          <li>
+            claim compensation for damage arising from unlawful processing.
+          </li>
+        </ul>
+        <h3>4.7 How to apply</h3>
+        <p>
+          Send your request by email to
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>.
+          You can also use the in-app tools (including export and
+          <a href="account-deletion.html">account deletion</a>). Applications
+          are free of charge. We will answer at the latest within 30 days, as
+          required by KVKK Article 13. If you are not satisfied, you may also
+          complain to the Personal Data Protection Authority (Kişisel Verileri
+          Koruma Kurulu) under KVKK Article 14.
+        </p>
+
+        <div id="consent-en" class="consent-block">
+          <h2>5. Health data and explicit consent (açık rıza)</h2>
+          <p class="effective">
+            Consent text last changed: 18 November 2026
+          </p>
+          <p>
+            This date is the date of the consent text below. It is separate
+            from the “Last updated” date at the top of this page, which may
+            change when other parts of the document are revised.
+          </p>
+          <p>
+            Explicit consent is collected only for <strong>daKun
+            accounts</strong> (Google Sign-In). It is given on the sign-in
+            screen, by choosing
+            <strong>Accept and continue with Google</strong>
+            (<strong>Kabul et ve Google ile devam et</strong>). Guest use does
+            not go through this step (see section 2.5).
+          </p>
+          <p>
+            Meal logs and photos, weight, activity, and AI meal analysis are
+            health data. For a daKun account, processing them, and sending meal
+            photos and related text to AI providers in the listed categories,
+            requires your explicit consent. This consent is separate from the
+            information notice in section 4. If you do not accept, you cannot
+            create or use a daKun account; you may still use the app as a
+            guest.
+          </p>
+          <p>
+            There is one single consent, covering health-data processing and
+            transfer to all providers in the listed categories — not a
+            separate consent per provider or model. In this document, the
+            <strong>listed categories</strong> are: (1) Google Gemini (paid
+            API); and (2) Alibaba Cloud Model Studio / DashScope (Singapore).
+            Providers and models may change within those listed categories;
+            that does not by itself require a new consent. A new provider
+            outside those categories, a new data category, a new purpose, or a
+            change to this consent text will require consent again.
+          </p>
+          <p>
+            If the consent text changes and you do not re-accept, the app
+            stays usable in a <strong>restricted mode</strong>: on-device
+            logging continues, and you can read and download your cloud data,
+            but meal analysis and new cloud uploads are unavailable until you
+            accept.
+          </p>
+          <p>
+            You can withdraw this consent only by deleting your account. A
+            backup export is offered first (see
+            <a href="account-deletion.html">Account deletion</a>). After
+            withdrawal the signed-in account is deleted.
+          </p>
+          <h3 id="explicit-consent-en">Explicit consent</h3>
+          <p>
+            The following text is the explicit consent (açık rıza). In the app
+            it is shown on the sign-in screen, separate from the rest of this
+            document:
+          </p>
+          <p>
+            I have read this Privacy Policy, including the KVKK information
+            notice. I expressly consent to the processing of my health data —
+            including meal logs and photos, weight, activity, and AI meal
+            analysis — and to the transfer of meal photos and related text,
+            for analysis, to AI providers in the listed categories: Google
+            Gemini (paid API) and Alibaba Cloud Model Studio / DashScope
+            (Singapore). Providers and models may change within those listed
+            categories. I understand that I can withdraw this consent only by
+            deleting my account (a backup export is offered first).
+          </p>
+        </div>
+
+        <h2 id="ai-providers-en">6. AI providers</h2>
+        <h3>6.1 Listed categories</h3>
+        <p>
+          In this document, the <strong>listed categories</strong> of AI
+          providers are:
+        </p>
+        <ul>
+          <li>Google Gemini (paid API); and</li>
+          <li>Alibaba Cloud Model Studio / DashScope (Singapore).</li>
+        </ul>
+        <p>
+          Models used within a listed category may change. A dated history is
+          kept in the table below and is updated when the production models or
+          providers change. Adding a provider outside these listed categories
+          would require a new consent.
+        </p>
+        <p>
+          Analysis requests are sent from our server. We do not send your
+          user id, Google id, installation id, integrity token, subscription
+          tier, meal slot, date, weight, goals, history, or device ids to the
+          AI providers. Providers see our server’s network addresses. The
+          request includes the meal image (re-encoded on the device as JPEG,
+          with EXIF/GPS removed on the device), any meal text you type, the
+          app’s UI language, and, when you refine a result, the dish
+          name/amount/calories/macros plus your correction note. Residual
+          risk remains if a photo or the text you type is itself identifying.
+        </p>
+        <p>
+          We do not store the photos. The listed providers do not use your
+          requests to train their models. They may retain requests for
+          security and abuse monitoring:
+        </p>
+        <ul>
+          <li>Google Gemini: up to 55 days (abuse logs);</li>
+          <li>Alibaba Cloud Model Studio / DashScope: up to 30 days.</li>
+        </ul>
+        <h3>6.2 Model and provider history</h3>
+        <p>
+          This table starts on 18 November 2026 (Europe/Istanbul), the
+          effective starting date of this history. It will be updated when the
+          production models or providers change.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Provider</th>
+              <th>Model(s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>18 November 2026 – present</td>
+              <td>
+                Alibaba Cloud Model Studio / DashScope and Google Gemini
+                (round-robin)
+              </td>
+              <td>
+                qwen3.7-flash, qwen3.8-flash, and gemini-2.5-flash-lite
+                (<code>ds_qwen_37_flash</code>,
+                <code>ds_qwen_38_flash</code>,
+                <code>gemini_25_flash_lite</code>)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>7. Storage, security, and retention</h2>
         <ul>
           <li>
             <strong>On the device:</strong> a local database (Room). We do
             <strong>not</strong> claim encryption at rest for that database.
+            Meals, weight, activity, and analysis results are stored here.
           </li>
           <li>
             <strong>Android backup:</strong> the app allows Android Auto Backup,
@@ -179,9 +519,17 @@
             account backup settings.
           </li>
           <li>
-            <strong>Pro cloud sync:</strong> encrypted in transit (HTTPS) to
-            Supabase Storage (per-day and catalog change files tied to your
-            account).
+            <strong>Our cloud (Supabase, EU — Frankfurt):</strong> we store
+            account and profile data, the consent timestamp, and quota
+            information for daKun accounts, and <strong>Pro cloud sync</strong>
+            files for Pro subscribers (per-day and catalog change files tied to
+            your account). We do not store your meals, weight, activity, or
+            analysis results in Supabase unless they are part of Pro cloud
+            sync. Transit uses HTTPS.
+          </li>
+          <li>
+            <strong>Photos:</strong> we do not store meal photos. See
+            section 6 for provider retention.
           </li>
           <li>
             <strong>Free backup:</strong> you can export or import a backup file
@@ -191,8 +539,27 @@
             Network traffic to our backends and Google services uses HTTPS.
           </li>
         </ul>
+        <p>
+          Guest and on-device data stay until you clear app data, uninstall, or
+          we delete them after a valid deletion request. Account, profile,
+          consent timestamp, quota, and Pro cloud-sync files are kept while the
+          account exists, and are deleted when you request deletion (see
+          section 9). After deletion, backups and platform logs may keep
+          deleted data for <strong>at most 30 days</strong>.
+        </p>
+        <p>
+          The IP prefix and request counts described in section 2.4 are kept
+          for at most 1 hour. Our server logs may contain a user id and a short
+          excerpt of meal text. Supabase platform logs may retain IP addresses
+          for a limited period according to that provider.
+        </p>
+        <p>
+          Crashlytics crash reports are kept in the Firebase console for about
+          90 days. Analytics and ads partners apply their own retention.
+          Backup files you exported remain wherever you saved them.
+        </p>
 
-        <h2>5. Sharing and processors</h2>
+        <h2 id="processors-en">8. Sharing and processors</h2>
         <p>
           We do <strong>not sell or rent</strong> your personal or health data.
           We share information with service providers only as needed to run the
@@ -214,14 +581,25 @@
               </td>
             </tr>
             <tr>
-              <td>Supabase</td>
-              <td>Authentication, Pro cloud files, edge functions (including meal analysis gateway and related checks)</td>
+              <td>Supabase (EU, Frankfurt)</td>
+              <td>
+                Authentication, account and profile data, consent timestamp,
+                quota, Pro cloud-sync files, and edge functions (including the
+                meal-analysis gateway and related checks)
+              </td>
             </tr>
             <tr>
-              <td>AI meal-analysis providers</td>
+              <td>Google Gemini (paid API)</td>
               <td>
-                Process meal images and related text to return estimates (for
-                example Gemini or another configured model)
+                Processes meal images and related text to return estimates, as
+                described in section 6
+              </td>
+            </tr>
+            <tr>
+              <td>Alibaba Cloud Model Studio / DashScope (Singapore)</td>
+              <td>
+                Processes meal images and related text to return estimates, as
+                described in section 6
               </td>
             </tr>
           </tbody>
@@ -236,64 +614,128 @@
           interactions, and diagnostics with Google for advertising, analytics,
           and fraud prevention — not only as processors acting solely on our
           instructions. Firebase Crashlytics processes crash logs on our behalf
-          (collected, not shared). Supabase (auth, Pro files, edge functions) and AI
-          meal-analysis providers process data on our behalf. Health Connect
-          may share health and fitness data with other apps you authorize
-          there.
+          (collected, not shared). Supabase and the AI meal-analysis providers
+          process data on our behalf. Health Connect may share health and
+          fitness data with other apps you authorize there.
         </p>
 
-        <h2>6. Retention</h2>
+        <h2>9. Your rights and deletion</h2>
         <p>
-          Guest and on-device data stay until you clear app data, uninstall, or
-          we delete them after a valid deletion request. Cloud account data for
-          signed-in users is kept while the account exists and for Pro sync
-          files until deleted. Crashlytics crash reports are kept in the
-          Firebase console for about 90 days. Analytics and ads partners apply
-          their own retention. Backup files you exported remain wherever you saved them.
-        </p>
-
-        <h2>7. Your rights and deletion</h2>
-        <p>
-          You can view and edit most logs and profile fields in the app. You can
+          Your KVKK Article 11 rights, and how to apply under Article 13, are
+          set out in section 4. GDPR rights are set out in section 11. In the
+          app you can view and edit most logs and profile fields. You can
           export a backup from the app (Free manual backup).
         </p>
         <p>
-          To request <strong>deletion</strong> of your Google-linked account and
-          associated cloud data, use <strong>Delete account</strong> in the app
+          To request <strong>deletion</strong> of your daKun account and
+          associated cloud data — which is also how you withdraw the consent in
+          section 5 — use <strong>Delete account</strong> in the app
           (Profile → Google account card), or email
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
           from the address on the account (see
-          <a href="account-deletion.html">Account deletion</a>). We delete
-          associated account and cloud data (not merely freeze it), subject to
-          legal retention. A Play subscription must be cancelled in Google Play.
-          Guest data is on-device only.
+          <a href="account-deletion.html">Account deletion</a>). A backup
+          export is offered first. We delete associated account and cloud data
+          (not merely freeze it), including the consent timestamp, subject to
+          legal retention and the backup and platform-log window in section 7.
+          A Play subscription must be cancelled in Google Play. Guest data is
+          on-device only.
         </p>
         <p>
           Uninstalling the app removes the local database from that device. It
           does not by itself delete a cloud account.
         </p>
 
-        <h2>8. Children</h2>
+        <h2 id="consent-record-en">10. Consent record</h2>
+        <p>
+          For daKun accounts, Supabase stores only
+          <code>consent_accepted_at</code>: the server timestamp of when you
+          gave the consent in section 5. We do not store a version id, IP
+          address, or device data for this record. A filled timestamp means
+          consent was given. Guests have no such record.
+        </p>
+        <p>
+          The text that was valid at that moment is the consent text in
+          section 5 as dated under “Consent text last changed”. If that
+          timestamp is earlier than the current consent-text date, you will be
+          asked to consent again. Until you accept, the app stays usable in
+          the restricted mode described in section 5 (on-device logging
+          continues; you can read and download your cloud data; meal analysis
+          and new cloud uploads are unavailable).
+        </p>
+        <p>
+          The record is deleted with your account (withdrawal is account
+          deletion; a backup export is offered first).
+        </p>
+
+        <h2 id="gdpr-en">11. GDPR</h2>
+        <p>
+          This section applies where the EU General Data Protection Regulation
+          (GDPR) applies, including in a worldwide release of the app.
+        </p>
+        <p>
+          The controller is the same as in section 1. For GDPR, the legal
+          bases are:
+        </p>
+        <ul>
+          <li>
+            performance of a contract, Article 6(1)(b) — for the account, the
+            app service you request, and subscriptions;
+          </li>
+          <li>
+            our legitimate interests, Article 6(1)(f) — for security, abuse
+            prevention, product analytics, crash diagnosis, and operating
+            Free-tier ads, balanced against your rights;
+          </li>
+          <li>
+            explicit consent, Article 9(2)(a) — for health data (special
+            category) processed for a daKun account, including AI meal
+            analysis, as set out in section 5.
+          </li>
+        </ul>
+        <p>
+          You have the rights of access, rectification, erasure, restriction,
+          portability, and objection, and the right to withdraw consent
+          (withdrawal does not affect processing already carried out). You may
+          also lodge a complaint with a competent supervisory authority,
+          including in the EEA the authority of your country of residence, work,
+          or of the place of the alleged infringement. You can apply to us as
+          described in section 4.7.
+        </p>
+        <p>
+          International transfers are described factually in sections 4.5 and
+          6: some processing takes place in the EU (Supabase, Frankfurt); other
+          processing may take place in the United States, Singapore, or other
+          countries (Google services and the AI providers in the listed
+          categories). This section does not claim that a particular transfer
+          tool (for example standard contractual clauses) is already in place.
+        </p>
+
+        <h2>12. Children</h2>
         <p>
           daKun Health is for users 18+. We do not knowingly collect personal
           data from children. If you believe a child has used the app, contact
           us and we will delete the data we hold.
         </p>
 
-        <h2>9. International transfers</h2>
+        <h2>13. International transfers</h2>
         <p>
-          Processors such as Google and Supabase may process data in countries
-          other than Türkiye, including the United States, under their
-          contracts and safeguards.
+          See sections 4.5, 6, and 11. In short: the controller is in Türkiye;
+          account, profile, consent timestamp, quota, and Pro cloud-sync files
+          are in the EU (Frankfurt). Google and the AI providers in the listed
+          categories may process data outside Türkiye, including the United
+          States and Singapore.
         </p>
 
-        <h2>10. Changes</h2>
+        <h2>14. Changes</h2>
         <p>
-          We may update this policy. The effective date above will change. The
-          current version is always at this URL.
+          We may update this policy. The “Last updated” date at the top will
+          change. The current version is always at this URL. If the consent
+          text in section 5 changes, the “Consent text last changed” date in
+          that section will change, and you will be asked to accept again. Until
+          you accept, the restricted mode in section 5 applies.
         </p>
 
-        <h2>11. Contact</h2>
+        <h2>15. Contact</h2>
         <p>
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
         </p>
@@ -303,18 +745,22 @@
 
       <section id="tr" lang="tr">
         <h1>Gizlilik Politikası</h1>
-        <p class="effective">Yürürlük tarihi: 12 Kasım 2026</p>
+        <p class="effective">Son güncelleme: 18 Kasım 2026</p>
         <p>
           Bu Gizlilik Politikası, <strong>daKun Health</strong> Android
-          uygulamasının (“uygulama”) bilgileri nasıl işlediğini açıklar. Google
-          Play Kullanıcı Verileri ve sağlık uygulamaları politikaları ile KVKK
-          aydınlatması için yazılmıştır. Tıbbi tavsiye değildir.
+          uygulamasının (“uygulama”) bilgileri nasıl işlediğini açıklar. Tek
+          bir belgedir: KVKK aydınlatma metnini, açık rıza metnini ve dünya
+          genelinde yayımlama için bir GDPR bildirimini de içerir. Google Play
+          Kullanıcı Verileri ve sağlık uygulamaları politikaları için de
+          yazılmıştır. Tıbbi tavsiye değildir.
         </p>
 
         <h2>1. Veri sorumlusu</h2>
         <p>
-          Veri sorumlusu gerçek kişi <strong>Sinan ÖZIŞIK</strong>, Türkiye.
-          İletişim:
+          Veri sorumlusu, bağımsız geliştirici gerçek kişi
+          <strong>Sinan Özışık</strong>. Adres: Prof. Dr. Bülent Tarcan Cd.,
+          Meriç Konak 4 Ap., No: 17, D: 6, Gayrettepe Mh., 34349
+          Beşiktaş/İstanbul, Türkiye. E-posta:
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>.
         </p>
         <p>
@@ -328,20 +774,22 @@
 
         <h2>2. Topladığımız bilgiler</h2>
         <p>Toplanan veriler kullanımıza göre değişir.</p>
-        <h2>2.1 Hesap ve kimlik</h2>
+        <h3>2.1 Hesap ve kimlik</h3>
         <ul>
           <li>
-            <strong>Misafir:</strong> cihazdaki yerel kimlik. Google hesabı
-            olmadan temel takip kullanılabilir.
+            <strong>Misafir kullanım:</strong> daKun hesabı olmadan uygulamayı
+            kullanabilirsiniz. Bkz. 2.5. bölüm.
           </li>
           <li>
-            <strong>İsteğe bağlı Google ile giriş:</strong> ad, e-posta, Google
-            hesap kimliği, isteğe bağlı profil fotoğrafı URL’si. Giriş Google
-            Credential Manager ile yapılır; oturum bulut sağlayıcımızda
+            <strong>daKun hesabı (Google ile giriş):</strong> ad, e-posta,
+            Google hesap kimliği, isteğe bağlı profil fotoğrafı URL’si. Giriş
+            Google Credential Manager ile yapılır; oturum bulut sağlayıcımızda
             (Supabase Auth) oluşur. Firebase Authentication kullanılmaz.
+            <a href="#consent-tr">5. bölümdeki</a> açık rıza bu giriş ekranında
+            verilir.
           </li>
         </ul>
-        <h2>2.2 Girdiğiniz veya eşitlediğiniz profil ve sağlık verileri</h2>
+        <h3>2.2 Girdiğiniz veya eşitlediğiniz profil ve sağlık verileri</h3>
         <ul>
           <li>
             Profil: doğum tarihi, cinsiyet, boy, kilo, vücut yağ oranı,
@@ -354,24 +802,52 @@
           </li>
           <li>Aktivite, adım ve kilo kayıtları (kilo kaydında isteğe bağlı yağ).</li>
           <li>
+            Yapay zekâ sağlayıcılarından dönen öğün analizi sonuçları (tahmini
+            yemekler, miktarlar ve makrolar).
+          </li>
+          <li>
             <strong>Health Connect</strong> (açıp her izni verirseniz): kilo,
             vücut yağı, beslenme, egzersiz okuma/yazma; adım, mesafe ve aktif
             kalori okuma — uygulamadaki Health Connect gerekçesinde anlatıldığı
             gibi.
           </li>
         </ul>
-        <h2>2.3 Öğün fotoğrafları ve yapay zekâ analizi</h2>
+        <p>
+          Bu kayıtlar ve sonuçlar cihazınızda saklanır. Bulutumuza yalnızca
+          <strong>Pro bulut senkronu</strong> kullanıyorsanız yüklenir (7.
+          bölüm).
+        </p>
+
+        <h3>2.3 Öğün fotoğrafları ve yapay zekâ analizi</h3>
         <p>
           Kamera, galeri veya sistem fotoğraf seçicisini kullanırsanız
-          <strong>öğün görseli</strong> (ve eklediğiniz metin) analiz ağ
-          geçidine gönderilir; bir yapay zekâ modeli (örneğin Google Gemini
-          veya yapılandırdığımız başka bir sağlayıcı) yiyecek ve makro tahmini
-          üretir. Fotoğraflar bu analiz isteği içindir. Cihaz veritabanında
-          öğün veya yemek satırına fotoğraf alanı olarak kaydedilmez. İstek
-          süresince işlenir (geçici). Ağ geçidi loguna görüntü baytı yazılmaz.
-          Ham öğün fotoğrafı Analytics’e gönderilmez.
+          <strong>öğün görseli</strong> (ve eklediğiniz metin) sunucumuzdan,
+          listelenen kategorilerdeki yapay zekâ sağlayıcılarına (
+          <a href="#ai-providers-tr">6. bölüm</a>) gönderilir; bir model
+          yiyecek ve makro tahmini üretir. Fotoğrafı <strong>biz
+          saklamayız</strong> (cihaz veritabanında öğün veya yemek satırına
+          fotoğraf alanı olarak yazılmaz; ağ geçidi loguna görüntü baytı da
+          yazılmaz). Ham öğün fotoğrafı Analytics’e gönderilmez.
         </p>
-        <h2>2.4 Teknik, reklam, faturalama ve bütünlük</h2>
+        <p>
+          Fotoğraf analizi, görsellerin yalnızca yemek veya öğün fotoğrafı
+          olduğunu varsayar. Yalnızca yemek veya öğün fotoğrafı
+          yüklemelisiniz. İnsan veya yüz, kimlik belgesi, tıbbi rapor veya
+          başka kişisel ya da üçüncü kişiye ait içerik gibi diğer fotoğrafları
+          yüklemeyin. Yine de böyle bir fotoğraf yüklerseniz, bu fotoğraf
+          herhangi bir öğün fotoğrafı gibi yalnızca öğün analizi için işlenir
+          ve tarafımızca saklanmaz. Sağlayıcılar isteği, 6. bölümde
+          anlatıldığı gibi, sınırlı süre saklayabilir. Aynı kullanım kuralı
+          <a href="terms.html">Kullanım Şartları</a>’ndadır.
+        </p>
+        <p>
+          Bu nedenle fotoğraflar sağlayıcı sistemlerinde “geçici / ephemeral”
+          değildir: sağlayıcılar isteği güvenlik ve kötüye kullanım izlemesi
+          için sınırlı süre saklayabilir (6. bölüm). Fotoğrafları kendi
+          modellerimizi eğitmek için kullanmayız; listelenen sağlayıcıların da
+          isteklerinizi modellerini eğitmek için kullanmasına izin verilmez.
+        </p>
+        <h3>2.4 Teknik, reklam, faturalama, bütünlük ve loglar</h3>
         <ul>
           <li>
             <strong>Kurulum kimliği</strong> (bu yükleme için UUID; kullanıcı
@@ -387,7 +863,18 @@
             (öğün analizi, senkron, reklamla ilgili kontroller).
           </li>
           <li>
-            <strong>Teşhis:</strong> bu Integrity jetonları; ücretsiz sürümde
+            <strong>Kötüye kullanım önleme için IP öneki:</strong> bir IP
+            önekini (/24 IPv4, /56 IPv6) istek sayılarıyla birlikte en fazla
+            1 saat tutarız.
+          </li>
+          <li>
+            <strong>Sunucu loglarımızda</strong> kullanıcı kimliği ve kısa bir
+            öğün metni özeti bulunabilir. Görüntü baytı bulunmaz. Supabase
+            platform logları, IP adreslerini o sağlayıcının uyguladığı sınırlı
+            süre boyunca tutabilir.
+          </li>
+          <li>
+            <strong>Teşhis:</strong> Integrity jetonları; ücretsiz sürümde
             AdMob SDK teşhis verisi; ayrıca çökme kayıtları (aşağıda Firebase
             Crashlytics).
           </li>
@@ -434,23 +921,318 @@
             Yerel hatırlatıcılar (öğün ve kilo). Bu hatırlatıcılar için
             Firebase Cloud Messaging kullanılmaz.
           </li>
+          <li>
+            <strong>Rıza kaydı</strong> (yalnızca daKun hesapları):
+            <a href="#consent-tr">5. bölümdeki</a> rızayı kabul ettiğiniz anın
+            sunucu zaman damgasını saklarız (
+            <a href="#consent-record-tr">10. bölüm</a>).
+          </li>
+          <li>
+            Hesabınıza analiz sınırlarını uygulamak için kullanılan
+            <strong>kota</strong> bilgisi.
+          </li>
         </ul>
+        <h3>2.5 Misafir kullanım</h3>
+        <p>
+          Misafir kullanım anonimdir. daKun hesabı ve Google girişi yoktur.
+          Misafir verisi cihazda kalır. Misafir olarak öğün analizi yaparsanız
+          istek, 6. bölümde anlatıldığı gibi, sunucumuzdan kullanıcı kimliği
+          olmadan gönderilir. Misafirler için rıza zaman damgası tutmayız. 5.
+          bölümdeki açık rıza yalnızca daKun hesabına girişte geçerlidir.
+        </p>
 
         <h2>3. Verileri nasıl kullanırız</h2>
         <ul>
           <li>Takip, hedefler, hatırlatıcılar ve cihaz içi depolama.</li>
-          <li>İsteğe bağlı Google hesabı, Pro bulut senkronu, yapay zekâ öğün tahmini.</li>
+          <li>
+            İsteğe bağlı daKun hesabı, Pro bulut senkronu, yapay zekâ öğün
+            tahmini.
+          </li>
           <li>Ücretsiz sürümde reklam; Play aboneliklerini yönetme.</li>
           <li>Hizmeti koruma (bütünlük, kota, kötüye kullanım).</li>
           <li>Analytics ile ürün kullanımını anlama.</li>
           <li>E-posta ile gönderdiğiniz destek taleplerine yanıt.</li>
         </ul>
 
-        <h2>4. Saklama ve güvenlik</h2>
+        <h2 id="kvkk-tr">4. KVKK aydınlatma metni</h2>
+        <p>
+          Bu bölüm, 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun 5, 6,
+          10, 11 ve 13. maddeleri kapsamında aydınlatma metnidir. Kişisel
+          veriler elektronik ortamda, uygulama aracılığıyla toplanır
+          (girdiğiniz veriler, verdiğiniz izinler ve kullanımınızla oluşan
+          teknik veriler). Destek ve hak talepleri e-posta ile de toplanabilir.
+        </p>
+        <h3>4.1 Veri sorumlusunun kimliği</h3>
+        <p>
+          Veri sorumlusu 1. bölümde tanıtılır (ad, bağımsız geliştirici gerçek
+          kişi sıfatı, adres ve iletişim e-postası). Bu bilgiler burada
+          yinelenmez.
+        </p>
+        <h3>4.2 İşleme amaçları</h3>
+        <p>Kişisel verileri şu amaçlarla işleriz:</p>
+        <ul>
+          <li>
+            beslenme, kilo, aktivite ve adım takibi ile hedef ve
+            hatırlatıcıları sunmak;
+          </li>
+          <li>
+            öğün fotoğraflarını ve ilgili metni yapay zekâ sağlayıcılarıyla
+            analiz etmek ve tahmin sonuçlarını kayıtlarınızda tutmak;
+          </li>
+          <li>
+            daKun hesabını oluşturmak ve yönetmek; Pro abonelerinde bulut
+            senkronunu sunmak;
+          </li>
+          <li>ücretsiz sürümü (reklam dahil) ve Play aboneliklerini işletmek;</li>
+          <li>hizmeti korumak (bütünlük, kota, kötüye kullanım önleme);</li>
+          <li>ürün kullanımını anlamak ve çökmeleri teşhis etmek;</li>
+          <li>destek ve silme taleplerine yanıt vermek.</li>
+        </ul>
+        <h3>4.3 Hukuki sebepler</h3>
+        <ul>
+          <li>
+            <strong>Sağlık verisi</strong> (KVKK m. 6 özel nitelikli kişisel
+            veri), daKun hesapları için öğün kayıtları ve beslenme analizi
+            için kullanılan fotoğraflar, kilo, aktivite ve analiz sonuçları
+            dahil: <strong>açık rıza</strong>, m. 6.
+          </li>
+          <li>
+            Hesap, giriş, talep ettiğiniz uygulama hizmetinin sunulması ve
+            Play abonelikleri: sözleşmenin kurulması veya ifası, m. 5/2 (c).
+          </li>
+          <li>
+            Yükümlü olabileceğimiz kanuni yükümlülükler: m. 5/2 (ç).
+          </li>
+          <li>
+            Güvenlik, Play Integrity, kota, kötüye kullanım önleme, Firebase
+            Analytics ve Crashlytics ile ücretsiz sürüm reklamlarının (ilgili
+            reklam kimlikleri dahil) işletilmesi: meşru menfaatimiz, m. 5/2
+            (f); temel hak ve özgürlüklerinize zarar vermemek kaydıyla. Google
+            UMP’nin gerektiği yerlerde (ör. AEA/Birleşik Krallık) bu Google
+            onayı, 5. bölümdeki sağlık verisi açık rızasından ayrıdır.
+          </li>
+        </ul>
+        <p>
+          Hesap yönetimi, reklam veya çökme kayıtları için ayrıca bir rıza
+          istemeyiz. Bu işlemeler bu aydınlatmada açıklanır ve yukarıdaki
+          hukuki sebeplere dayanır. 5. bölümdeki açık rıza yalnızca daKun
+          hesapları için, giriş ekranında alınır.
+        </p>
+        <h3>4.4 Aktarım yapılan alıcılar</h3>
+        <p>
+          Kişisel veya sağlık verilerinizi satmıyor veya kiralamıyoruz.
+          Alıcılar, <a href="#processors-tr">8. bölümde</a> listelenen hizmet
+          sağlayıcılardır: Google (Giriş, Play, Play Billing, AdMob, Firebase
+          Analytics, Firebase Crashlytics, Play Integrity, Health Connect),
+          Supabase ve 6. bölümdeki listelenen kategorilerdeki yapay zekâ
+          sağlayıcıları. Health Connect, orada yetki verdiğiniz diğer
+          uygulamalarla da veri paylaşabilir.
+        </p>
+        <h3>4.5 Yurt dışına aktarım</h3>
+        <p>
+          Veri sorumlusu Türkiye’dedir. Hesap, profil, rıza zaman damgası,
+          kota ve Pro bulut senkron dosyaları Avrupa Birliği’ndeki
+          Supabase’te barındırılır (Frankfurt, <code>eu-central-1</code>).
+          Google ve listelenen kategorilerdeki yapay zekâ sağlayıcıları
+          veriyi Türkiye dışındaki ülkelerde, ABD dahil, ve Alibaba Cloud
+          Model Studio / DashScope için Singapur’da işleyebilir. Öğün
+          fotoğrafları ve ilgili metin, 6. bölümde anlatıldığı gibi, analiz
+          için bu yapay zekâ sağlayıcılarına gönderilir.
+        </p>
+        <p>
+          Bu bölüm, verinin fiilen nereye gittiğini anlatır. Standart
+          sözleşmelerin veya diğer yurt dışı aktarım güvencelerinin henüz
+          yerinde olduğunu ileri sürmez.
+        </p>
+        <h3>4.6 KVKK m. 11 kapsamındaki haklarınız</h3>
+        <p>Şu haklara sahipsiniz:</p>
+        <ul>
+          <li>kişisel verilerinizin işlenip işlenmediğini öğrenme;</li>
+          <li>işlenmişse buna ilişkin bilgi talep etme;</li>
+          <li>
+            işlenme amacını ve bunların amacına uygun kullanılıp
+            kullanılmadığını öğrenme;
+          </li>
+          <li>
+            yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü
+            kişileri bilme;
+          </li>
+          <li>
+            kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların
+            düzeltilmesini isteme;
+          </li>
+          <li>
+            m. 7’de öngörülen şartlar çerçevesinde kişisel verilerin silinmesini
+            veya yok edilmesini isteme;
+          </li>
+          <li>
+            düzeltme, silme veya yok etmenin, verilerin aktarıldığı üçüncü
+            kişilere bildirilmesini isteme;
+          </li>
+          <li>
+            işlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz
+            edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz
+            etme;
+          </li>
+          <li>
+            kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara
+            uğramanız hâlinde zararın giderilmesini talep etme.
+          </li>
+        </ul>
+        <h3>4.7 Başvuru usulü</h3>
+        <p>
+          Talebinizi
+          <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
+          adresine e-posta ile gönderin. Uygulama içi araçları da
+          kullanabilirsiniz (dışa aktarma ve
+          <a href="account-deletion.html">hesap silme</a> dahil). Başvurular
+          ücretsizdir. KVKK m. 13 uyarınca en geç 30 gün içinde yanıtlarız.
+          Sonucundan memnun kalmazsanız KVKK m. 14 uyarınca Kişisel Verileri
+          Koruma Kurulu’na da şikâyette bulunabilirsiniz.
+        </p>
+
+        <div id="consent-tr" class="consent-block">
+          <h2>5. Sağlık verisi ve açık rıza</h2>
+          <p class="effective">
+            Rıza metninin son değişikliği: 18 Kasım 2026
+          </p>
+          <p>
+            Bu tarih, aşağıdaki rıza metninin tarihidir. Sayfanın başındaki
+            “Son güncelleme” tarihinden ayrıdır; belgenin diğer bölümleri
+            değişince o tarih değişebilir.
+          </p>
+          <p>
+            Açık rıza yalnızca <strong>daKun hesapları</strong> (Google ile
+            giriş) için alınır. Giriş ekranında
+            <strong>Kabul et ve Google ile devam et</strong>
+            (<strong>Accept and continue with Google</strong>) seçilerek
+            verilir. Misafir kullanım bu adımdan geçmez (bkz. 2.5. bölüm).
+          </p>
+          <p>
+            Öğün kayıtları ve fotoğrafları, kilo, aktivite ve yapay zekâ öğün
+            analizi sağlık verisidir. daKun hesabı için bunların işlenmesi ve
+            öğün fotoğrafları ile ilgili metnin listelenen kategorilerdeki
+            yapay zekâ sağlayıcılarına gönderilmesi açık rızanızı gerektirir.
+            Bu rıza, 4. bölümdeki aydınlatmadan ayrıdır. Kabul etmezseniz
+            daKun hesabı oluşturamaz veya kullanamazsınız; uygulamayı misafir
+            olarak kullanmaya devam edebilirsiniz.
+          </p>
+          <p>
+            Tek bir rıza vardır: sağlık verisinin işlenmesi ve listelenen
+            kategorilerdeki tüm sağlayıcılara aktarım. Sağlayıcı veya model
+            başına ayrı rıza istenmez. Bu belgede
+            <strong>listelenen kategoriler</strong>: (1) Google Gemini (ücretli
+            API); (2) Alibaba Cloud Model Studio / DashScope (Singapur).
+            Sağlayıcılar ve modeller bu listelenen kategoriler içinde
+            değişebilir; bu tek başına yeni rıza gerektirmez. Bu kategorilerin
+            dışında yeni bir sağlayıcı, yeni bir veri kategorisi, yeni bir amaç
+            veya bu rıza metninin değişmesi yeni rıza ister.
+          </p>
+          <p>
+            Rıza metni değişir ve siz yeniden kabul etmezseniz uygulama
+            <strong>kısıtlı kipte</strong> kullanılabilir: cihaz içi kayıt
+            devam eder, bulut verinizi okuyabilir ve indirebilirsiniz; ancak
+            kabul edene kadar öğün analizi ve yeni bulut yüklemeleri
+            kullanılamaz.
+          </p>
+          <p>
+            Bu rızayı yalnızca hesabınızı silerek geri alabilirsiniz. Önce
+            yedek dışa aktarma sunulur (bkz.
+            <a href="account-deletion.html">hesap silme</a>). Rıza geri
+            alındıktan sonra giriş yapılmış hesap silinir.
+          </p>
+          <h3 id="explicit-consent-tr">Açık rıza metni</h3>
+          <p>
+            Aşağıdaki metin açık rızadır. Uygulamada giriş ekranında, bu
+            belgenin geri kalanından ayrı gösterilir:
+          </p>
+          <p>
+            Gizlilik Politikasını ve KVKK aydınlatma metnini okudum. Öğün
+            kayıtlarım ve fotoğraflarım, kilo ve aktivite verilerim ile yapay
+            zekâ öğün analizi dahil sağlık verilerimin işlenmesine; öğün
+            fotoğraflarımın ve ilgili metnin, listelenen kategorilerdeki yapay
+            zekâ sağlayıcılarına (Google Gemini ücretli API ve Alibaba Cloud
+            Model Studio / DashScope, Singapur) analiz amacıyla aktarılmasına
+            açık rıza veriyorum. Sağlayıcılar ve modeller, bu listelenen
+            kategoriler içinde değişebilir. Bu rızayı yalnızca hesabımı silerek
+            geri alabileceğimi (önce yedek dışa aktarma sunulur) biliyorum.
+          </p>
+        </div>
+
+        <h2 id="ai-providers-tr">6. Yapay zekâ sağlayıcıları</h2>
+        <h3>6.1 Listelenen kategoriler</h3>
+        <p>
+          Bu belgede yapay zekâ sağlayıcılarının
+          <strong>listelenen kategorileri</strong> şunlardır:
+        </p>
+        <ul>
+          <li>Google Gemini (ücretli API); ve</li>
+          <li>Alibaba Cloud Model Studio / DashScope (Singapur).</li>
+        </ul>
+        <p>
+          Bir listelenen kategori içindeki modeller değişebilir. Tarihli
+          geçmiş aşağıdaki tabloda tutulur ve üretim modelleri veya
+          sağlayıcıları değişince güncellenir. Bu kategorilerin dışında bir
+          sağlayıcı eklemek yeni rıza gerektirir.
+        </p>
+        <p>
+          Analiz istekleri sunucumuzdan gönderilir. Kullanıcı kimliğiniz,
+          Google kimliğiniz, kurulum kimliği, bütünlük jetonu, abonelik
+          düzeyi, öğün dilimi, tarih, kilo, hedefler, geçmiş veya cihaz
+          kimlikleri yapay zekâ sağlayıcılarına gönderilmez. Sağlayıcılar
+          sunucumuzun ağ adreslerini görür. İstekte öğün görseli (cihazda
+          JPEG olarak yeniden kodlanır, EXIF/GPS cihazda çıkarılır),
+          yazdığınız öğün metni, uygulamanın arayüz dili ve bir sonucu
+          düzeltirseniz yemek adı/miktar/kalori/makrolar ile düzeltme notunuz
+          bulunur. Fotoğrafın veya yazdığınız metnin kendisinin kimlik
+          içermesi hâlinde artakalan bir risk vardır.
+        </p>
+        <p>
+          Fotoğrafları biz saklamayız. Listelenen sağlayıcılar isteklerinizi
+          modellerini eğitmek için kullanmaz. Güvenlik ve kötüye kullanım
+          izlemesi için isteği sınırlı süre saklayabilirler:
+        </p>
+        <ul>
+          <li>Google Gemini: en fazla 55 gün (kötüye kullanım logları);</li>
+          <li>Alibaba Cloud Model Studio / DashScope: en fazla 30 gün.</li>
+        </ul>
+        <h3>6.2 Model ve sağlayıcı geçmişi</h3>
+        <p>
+          Bu tablo 18 Kasım 2026’da (Europe/Istanbul) başlar; bu geçmişin
+          başlangıç tarihidir. Üretim modelleri veya sağlayıcıları değişince
+          güncellenir.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Dönem</th>
+              <th>Sağlayıcı</th>
+              <th>Model(ler)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>18 Kasım 2026 – günümüz</td>
+              <td>
+                Alibaba Cloud Model Studio / DashScope ve Google Gemini
+                (sırayla / round-robin)
+              </td>
+              <td>
+                qwen3.7-flash, qwen3.8-flash ve gemini-2.5-flash-lite
+                (<code>ds_qwen_37_flash</code>,
+                <code>ds_qwen_38_flash</code>,
+                <code>gemini_25_flash_lite</code>)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>7. Saklama, güvenlik ve süre</h2>
         <ul>
           <li>
             <strong>Cihazda:</strong> yerel veritabanı (Room). Bu veritabanı
             için <strong>at-rest şifreleme iddiasında bulunmuyoruz</strong>.
+            Öğün, kilo, aktivite ve analiz sonuçları burada saklanır.
           </li>
           <li>
             <strong>Android yedekleme:</strong> uygulama Android Auto Backup’a
@@ -458,8 +1240,17 @@
             göre yedeklenebilir.
           </li>
           <li>
-            <strong>Pro bulut senkronu:</strong> iletimde şifreleme (HTTPS) ile
-            Supabase Storage (hesabınıza bağlı gün ve katalog dosyaları).
+            <strong>Bulutumuz (Supabase, AB — Frankfurt):</strong> daKun
+            hesapları için hesap ve profil verisi, rıza zaman damgası ve kota
+            bilgisi; Pro aboneleri için <strong>Pro bulut senkron</strong>
+            dosyaları saklanır (hesabınıza bağlı gün ve katalog dosyaları).
+            Öğün, kilo, aktivite veya analiz sonuçlarınızı, Pro bulut
+            senkronunun parçası değilse Supabase’te saklamayız. İletim HTTPS
+            kullanır.
+          </li>
+          <li>
+            <strong>Fotoğraflar:</strong> öğün fotoğraflarını biz saklamayız.
+            Sağlayıcı saklama süreleri için 6. bölüme bakın.
           </li>
           <li>
             <strong>Ücretsiz yedek:</strong> seçtiğiniz bir dosyaya dışa/içe
@@ -467,8 +1258,27 @@
           </li>
           <li>Sunucularımıza ve Google hizmetlerine trafik HTTPS kullanır.</li>
         </ul>
+        <p>
+          Misafir ve cihaz verileri, uygulama verisini silene, uygulamayı
+          kaldırana veya geçerli bir silme talebinden sonra silinene kadar
+          kalır. Hesap, profil, rıza zaman damgası, kota ve Pro bulut senkron
+          dosyaları hesap durduğu sürece tutulur; silme talebinizde silinir
+          (9. bölüm). Silmeden sonra yedekler ve platform logları silinen
+          veriyi <strong>en fazla 30 gün</strong> tutabilir.
+        </p>
+        <p>
+          2.4. bölümde anlatılan IP öneki ve istek sayıları en fazla 1 saat
+          tutulur. Sunucu loglarımızda kullanıcı kimliği ve kısa bir öğün
+          metni özeti bulunabilir. Supabase platform logları IP adreslerini o
+          sağlayıcının uyguladığı sınırlı süre boyunca tutabilir.
+        </p>
+        <p>
+          Crashlytics çökme raporları Firebase konsolunda yaklaşık 90 gün
+          tutulur. Analytics ve reklam ortaklarının kendi saklama süreleri
+          vardır. Dışa aktardığınız yedek dosyalar kaydettiğiniz yerde kalır.
+        </p>
 
-        <h2>5. Paylaşım ve işleyenler</h2>
+        <h2 id="processors-tr">8. Paylaşım ve işleyenler</h2>
         <p>
           Kişisel veya sağlık verilerinizi <strong>satmıyor veya kiralamıyoruz</strong>.
           Yalnızca uygulamayı çalıştırmak için gerekli sağlayıcılarla paylaşırız:
@@ -489,14 +1299,23 @@
               </td>
             </tr>
             <tr>
-              <td>Supabase</td>
-              <td>Kimlik doğrulama, Pro bulut dosyaları, uç işlevler (öğün analizi ağ geçidi ve ilgili kontroller)</td>
+              <td>Supabase (AB, Frankfurt)</td>
+              <td>
+                Kimlik doğrulama, hesap ve profil verisi, rıza zaman damgası,
+                kota, Pro bulut senkron dosyaları ve uç işlevler (öğün analizi
+                ağ geçidi ve ilgili kontroller)
+              </td>
             </tr>
             <tr>
-              <td>Öğün analizi yapay zekâ sağlayıcıları</td>
+              <td>Google Gemini (ücretli API)</td>
               <td>
-                Tahmin için öğün görseli ve ilgili metin (ör. Gemini veya
-                yapılandırılmış başka model)
+                Tahmin için öğün görseli ve ilgili metin (6. bölüm)
+              </td>
+            </tr>
+            <tr>
+              <td>Alibaba Cloud Model Studio / DashScope (Singapur)</td>
+              <td>
+                Tahmin için öğün görseli ve ilgili metin (6. bölüm)
               </td>
             </tr>
           </tbody>
@@ -512,73 +1331,141 @@
           paylaşır — yalnızca bizim talimatımızla işleyen sağlayıcı değildir.
           Firebase Crashlytics çökme kayıtlarını bizim adımıza işler
           (toplanır, paylaşılmaz).
-          Supabase (kimlik doğrulama, Pro dosyaları, uç işlevler) ve öğün
-          analizi yapay zekâ sağlayıcıları veriyi bizim adımıza işler. Health
-          Connect, orada yetki verdiğiniz diğer uygulamalarla sağlık ve fitness
-          verisi paylaşabilir.
+          Supabase ve öğün analizi yapay zekâ sağlayıcıları veriyi bizim adımıza
+          işler. Health Connect, orada yetki verdiğiniz diğer uygulamalarla
+          sağlık ve fitness verisi paylaşabilir.
         </p>
 
-        <h2>6. Saklama süresi</h2>
+        <h2>9. Haklarınız ve silme</h2>
         <p>
-          Misafir ve cihaz verileri, uygulama verisini silene, uygulamayı
-          kaldırana veya geçerli bir silme talebinden sonra silinene kadar
-          kalır. Giriş yapmış kullanıcıların bulut verisi hesap durduğu sürece
-          ve Pro senkron dosyaları silinene kadar tutulur. Crashlytics çökme
-          raporları Firebase konsolunda yaklaşık 90 gün tutulur. Analytics ve reklam
-          ortaklarının kendi saklama süreleri vardır. Dışa aktardığınız yedek
-          dosyalar kaydettiğiniz yerde kalır.
-        </p>
-
-        <h2>7. Haklarınız ve silme</h2>
-        <p>
-          Çoğu kayıt ve profil alanını uygulamada görüp düzenleyebilirsiniz.
-          Uygulamadan yedek dışa aktarabilirsiniz (ücretsiz manuel yedek).
+          KVKK m. 11 haklarınız ve m. 13 uyarınca başvuru usulü 4. bölümde,
+          GDPR hakları 11. bölümde yer alır. Çoğu kayıt ve profil alanını
+          uygulamada görüp düzenleyebilirsiniz. Uygulamadan yedek dışa
+          aktarabilirsiniz (ücretsiz manuel yedek).
         </p>
         <p>
-          Google ile bağlı hesabın ve ilişkili bulut verisinin
-          <strong>silinmesini</strong> istemek için uygulamada
+          daKun hesabının ve ilişkili bulut verisinin
+          <strong>silinmesini</strong> istemek — 5. bölümdeki rızayı geri
+          almanın da yolu budur — için uygulamada
           <strong>Hesabı sil</strong> (Profil → Google hesap kartı) veya hesap
           e-postanızdan
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
           adresine yazın (
           <a href="account-deletion.html">hesap silme</a>
-          ). İlişkili hesap ve bulut verisini (yalnızca dondurma değil) yasal
-          saklama saklı kalmak kaydıyla sileriz. Play aboneliğini Google
-          Play’den iptal edin. Misafir verisi yalnızca cihazdadır.
+          ). Önce yedek dışa aktarma sunulur. İlişkili hesap ve bulut
+          verisini (yalnızca dondurma değil), rıza zaman damgası dahil, yasal
+          saklama ve 7. bölümdeki yedek / platform log penceresi saklı kalmak
+          kaydıyla sileriz. Play aboneliğini Google Play’den iptal edin.
+          Misafir verisi yalnızca cihazdadır.
         </p>
         <p>
           Uygulamayı kaldırmak o cihazdaki yerel veritabanını siler; tek başına
           bulut hesabını silmez.
         </p>
 
-        <h2>8. Çocuklar</h2>
+        <h2 id="consent-record-tr">10. Rıza kaydı</h2>
+        <p>
+          daKun hesapları için Supabase yalnızca
+          <code>consent_accepted_at</code> alanını saklar: 5. bölümdeki rızayı
+          verdiğiniz anın sunucu zaman damgası. Bu kayıt için sürüm kimliği,
+          IP adresi veya cihaz verisi tutulmaz. Alanın dolu olması rızanın
+          verildiği anlamına gelir. Misafirler için böyle bir kayıt yoktur.
+        </p>
+        <p>
+          O andaki geçerli metin, 5. bölümdeki rıza metnidir; tarihi “Rıza
+          metninin son değişikliği” satırındadır. Bu zaman damgası, güncel
+          rıza metni tarihinden eskiyse yeniden rıza istenir. Kabul edene
+          kadar uygulama, 5. bölümde anlatılan kısıtlı kipte kullanılabilir
+          (cihaz içi kayıt devam eder; bulut verinizi okuyabilir ve
+          indirebilirsiniz; öğün analizi ve yeni bulut yüklemeleri
+          kullanılamaz).
+        </p>
+        <p>
+          Kayıt, hesapla birlikte silinir (rızanın geri alınması hesap
+          silmedir; önce yedek dışa aktarma sunulur).
+        </p>
+
+        <h2 id="gdpr-tr">11. GDPR</h2>
+        <p>
+          Bu bölüm, AB Genel Veri Koruma Tüzüğü’nün (GDPR) uygulandığı
+          yerlerde, uygulamanın dünya genelinde yayımlanması dahil, geçerlidir.
+        </p>
+        <p>
+          Veri sorumlusu 1. bölümdeki ile aynıdır. GDPR kapsamındaki hukuki
+          dayanaklar:
+        </p>
+        <ul>
+          <li>
+            bir sözleşmenin ifası, m. 6(1)(b) — hesap, talep ettiğiniz
+            uygulama hizmeti ve abonelikler;
+          </li>
+          <li>
+            meşru menfaatlerimiz, m. 6(1)(f) — güvenlik, kötüye kullanım
+            önleme, ürün analitiği, çökme teşhisi ve ücretsiz sürüm
+            reklamlarının işletilmesi; haklarınızla dengelenerek;
+          </li>
+          <li>
+            açık rıza, m. 9(2)(a) — daKun hesabı için işlenen sağlık verisi
+            (özel nitelikli / özel kategori), 5. bölümdeki yapay zekâ öğün
+            analizi dahil.
+          </li>
+        </ul>
+        <p>
+          Erişim, düzeltme, silme, işlemeyi kısıtlama, veri taşınabilirliği ve
+          itiraz haklarınız ile rızayı geri alma hakkınız vardır (geri alma,
+          o ana kadar yapılmış işlemeyi etkilemez). Yetkili bir denetim
+          otoritesine, AEA’da ikamet ettiğiniz, çalıştığınız veya ihlalin
+          gerçekleştiği iddia edilen ülkenin otoritesi dahil, şikâyette de
+          bulunabilirsiniz. Bize 4.7. bölümdeki usulle başvurabilirsiniz.
+        </p>
+        <p>
+          Uluslararası aktarımlar 4.5 ve 6. bölümlerde fiilen anlatılır: bazı
+          işleme AB’dedir (Supabase, Frankfurt); diğer işleme ABD, Singapur
+          veya başka ülkelerde olabilir (Google hizmetleri ve listelenen
+          kategorilerdeki yapay zekâ sağlayıcıları). Bu bölüm, belirli bir
+          aktarım aracının (örneğin standart sözleşme maddeleri) henüz yerinde
+          olduğunu ileri sürmez.
+        </p>
+
+        <h2>12. Çocuklar</h2>
         <p>
           daKun Health 18+ kullanıcılar içindir. Çocuklardan bilinçli veri
           toplamayız. Bir çocuğun uygulamayı kullandığını düşünüyorsanız bize
           yazın; elimizdeki veriyi sileriz.
         </p>
 
-        <h2>9. Uluslararası aktarım</h2>
+        <h2>13. Uluslararası aktarım</h2>
         <p>
-          Google ve Supabase gibi işleyenler veriyi Türkiye dışındaki
-          ülkelerde (ABD dahil) kendi sözleşmeleri ve güvenceleri kapsamında
-          işleyebilir.
+          4.5, 6. ve 11. bölümlere bakın. Kısa özet: veri sorumlusu
+          Türkiye’dedir; hesap, profil, rıza zaman damgası, kota ve Pro bulut
+          senkron dosyaları AB’dedir (Frankfurt). Google ve listelenen
+          kategorilerdeki yapay zekâ sağlayıcıları veriyi Türkiye dışında, ABD
+          ve Singapur dahil, işleyebilir.
         </p>
 
-        <h2>10. Değişiklikler</h2>
+        <h2>14. Değişiklikler</h2>
         <p>
-          Bu politikayı güncelleyebiliriz. Yukarıdaki yürürlük tarihi değişir.
-          Güncel metin her zaman bu adrestedir.
+          Bu politikayı güncelleyebiliriz. Baştaki “Son güncelleme” tarihi
+          değişir. Güncel metin her zaman bu adrestedir. 5. bölümdeki rıza
+          metni değişirse o bölümdeki “Rıza metninin son değişikliği” tarihi
+          de değişir ve yeniden kabul istenir. Kabul edene kadar 5. bölümdeki
+          kısıtlı kip uygulanır.
         </p>
 
-        <h2>11. İletişim</h2>
+        <h2>15. İletişim</h2>
         <p>
           <a href="mailto:dakun.support@gmail.com">dakun.support@gmail.com</a>
         </p>
       </section>
 
       <footer>
-        <p><a href="../index.html">daKun legal home</a></p>
+        <p>
+          <a href="terms.html">Terms of Use</a>
+          ·
+          <a href="account-deletion.html">Account deletion</a>
+          ·
+          <a href="../index.html">daKun legal home</a>
+        </p>
       </footer>
     </main>
   </body>
